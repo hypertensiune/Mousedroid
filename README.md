@@ -13,10 +13,9 @@
 
 Cross platform application that transforms your android phone in an input peripheral. Use it as a mouse (touchpad), keyboard or numpad. Wired or wirelessly, control your pc remotely.
 
-<b>Minimum android version: 8 (Oreo)</b>
-
-Supported platforms:
+### Supported platforms:
   - Windows
-  - Linux ( Some issues may arise on Wayland. )
-
-#### Features: Supports most gestures you would use on a touchpad.
+  - Linux
+  - Android 8 (Oreo) and newer
+  
+If you have issues on Ubuntu switch to Xorg.
