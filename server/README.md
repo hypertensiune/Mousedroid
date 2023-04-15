@@ -29,7 +29,7 @@ libwxgtk3.0-dev
 
 - First build the the `resource.rc`:
 ```
-  make resource
+  windres resource.rc resource.o -I$(WXWIN)\include
 ```
 - Build the `CMakeLists.txt`
 ```
