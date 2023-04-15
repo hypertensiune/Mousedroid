@@ -33,7 +33,7 @@ libwxgtk3.0-dev
 ```
 - Build the `CMakeLists.txt`
 ```
-  cmake -G"MinGW Makefiles" -B./cmake
+  cmake -G"MinGW Makefiles" -B./cmake . 
 ```
 - Run `make` in the `cmake` directory
 - Run the `install.bat` script
@@ -43,10 +43,10 @@ libwxgtk3.0-dev
 
 - Build the `CMakeLists.txt`
 ```
-  cmake -B./cmake
+  cmake -B./cmake .
 ```
 - Run `make` in the `cmake` directory
 - Run the `install.sh` script
-- The binary executable is located in `cmake/bin` and it's also installed in the system
+- The binary executable is located in `cmake/bin` and it's also installed in the system.
 
 
