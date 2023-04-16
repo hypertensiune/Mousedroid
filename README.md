@@ -9,8 +9,11 @@
 
 ***
 
- <img  src="imgs/scr1.png"  witdh=400  height=400></img>
- <img  src="imgs/scr2.png"  witdh=400  height=400></img> 
+<span>
+  <img  src="imgs/scr1.png" width=49%></img>
+  <img  src="imgs/scr2.png" width=45%></img> 
+</span>
+ 
 
 
 ## Description
