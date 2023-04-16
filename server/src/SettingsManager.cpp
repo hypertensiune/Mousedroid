@@ -139,13 +139,10 @@ void SettingsManager::ADBOff()
     {
         #ifdef _WIN32
             int a = system("adb reverse --remove-all");
-            a = system("adb kill-server");
         #else
             int a = system("./adb reverse --remove-all");
-            a = system("./adb kill-server");
         #endif
         LOG("ADB Server [PORT 6969] STOPPED");
-
         bAdbStarted = false;
     }
 }

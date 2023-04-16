@@ -7,7 +7,10 @@ Server::Server(SettingsManager &_settings) :
     settings.ADBOn();
 }
 
-Server::~Server() { }
+Server::~Server() 
+{
+    delete wxdevlist;
+}
 
 void Server::setDeviceList(wxDeviceList *_wxdevlist)
 {
