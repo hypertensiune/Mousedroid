@@ -4,7 +4,9 @@
 
 ### Windows
 
-- wxWidgets https://www.wxwidgets.org/downloads/. Build it yourself or use the prebuild binaries and add it to path as `WXWIN`.
+- wxWidgets https://www.wxwidgets.org/downloads/. Build it yourself or use the prebuild binaries and add it to path as `WXWIN`. 
+  https://wiki.wxwidgets.org/Compiling_wxWidgets_with_MinGW <br>
+  https://wiki.wxwidgets.org/Compiling_and_getting_started
 
 - ASIO https://think-async.com/Asio/. Download the library and add it to path as `ASIO`. Project is configured to use the standalone version, if you use the BOOST version you may need to change include paths.
 
