@@ -1,17 +1,21 @@
 package com.example.mousedroid
 
 import android.content.Context
+import android.util.Log
 import android.view.*
 import androidx.core.view.GestureDetectorCompat
 
 class GestureHandler(context: Context): GestureDetector.SimpleOnGestureListener() {
 
     val detector: GestureDetectorCompat = GestureDetectorCompat(context, this)
+
     private lateinit var view: View
 
     var scrolled = false
     var isLongPressed = false
     var isMovingAfterLongPress = false
+
+    var isScaling = false
 
     private val TAG = "Mousedroid"
 
@@ -53,8 +57,11 @@ class GestureHandler(context: Context): GestureDetector.SimpleOnGestureListener(
         if(e1.pointerCount == 1 && e2.pointerCount == 1)
             TcpClient.write(MOVE, distanceX, distanceY)
         else {
-            TcpClient.write(SCROLL, -distanceY)
-            scrolled = true
+            if(!isScaling) {
+                Log.d(TAG, "SCROLL")
+                TcpClient.write(SCROLL, -distanceY)
+                scrolled = true
+            }
         }
 
         return super.onScroll(e1, e2, distanceX, distanceY)

@@ -2,5 +2,6 @@
     <string name="app_name">Mousedroid</string>
     <string name="connectionFailedUSB">Make sure the server is open on the computer.</string>
     <string name="connectionFailedWIFI">Make sure the server is open on the computer and you are on the same network.</string>
-    <string name="connectionLost">Server stopped responding.</string>
+    <string name="connectionLost">Server stopped responding!</string>
+    <string name="connectionFailed">Connection failed!</string>
 </resources>

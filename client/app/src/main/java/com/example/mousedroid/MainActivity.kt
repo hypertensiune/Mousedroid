@@ -8,11 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Build
 import android.provider.Settings
+import android.util.Log
 import android.view.View
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.button.MaterialButton
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         val deviceName = Settings.Secure.getString(contentResolver, "bluetooth_name")
 
         val connectionMode = getConnectionMode()
-
         TcpClient.init(manufacturer, model, deviceName, connectionMode)
 
         TcpClient.addOnConnectionEstablishedListener {
@@ -39,21 +41,24 @@ class MainActivity : AppCompatActivity() {
 
         TcpClient.addOnConnectionLostListener {
             runOnUiThread{
-                findViewById<ConstraintLayout>(R.id.main).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.errorName).text = "Connection lost!"
-                findViewById<TextView>(R.id.errorDetail).text = getString(R.string.connectionLost)
+                findViewById<ConstraintLayout>(R.id.errorPanel).visibility = View.VISIBLE
+                findViewById<RelativeLayout>(R.id.loadingPanel).visibility = View.GONE
+                findViewById<TextView>(R.id.errorName).text = getString(R.string.connectionLost)
+                findViewById<TextView>(R.id.errorDetail).text = ""
             }
         }
 
         TcpClient.addOnConnectionFailedListener {
             runOnUiThread {
-                findViewById<ConstraintLayout>(R.id.main).visibility = View.VISIBLE
+                findViewById<ConstraintLayout>(R.id.errorPanel).visibility = View.VISIBLE
+                findViewById<RelativeLayout>(R.id.loadingPanel).visibility = View.GONE
 
                 if(connectionMode == TcpClient.USB) {
                     findViewById<MaterialButton>(R.id.selectAnotherDeviceButton).visibility = View.GONE
                     findViewById<TextView>(R.id.errorDetail).text = getString(R.string.connectionFailedUSB)
                 }
                 else{
+                    findViewById<TextView>(R.id.errorName).text = getString(R.string.connectionFailed)
                     findViewById<TextView>(R.id.errorDetail).text = getString(R.string.connectionFailedWIFI)
                 }
             }
@@ -70,13 +75,15 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             else{
-                findViewById<ConstraintLayout>(R.id.main).visibility = View.GONE
+                findViewById<ConstraintLayout>(R.id.errorPanel).visibility = View.GONE
+                findViewById<RelativeLayout>(R.id.loadingPanel).visibility = View.VISIBLE
                 TcpClient.connect()
             }
         }
 
         findViewById<MaterialButton>(R.id.selectAnotherDeviceButton).setOnClickListener {
-            findViewById<ConstraintLayout>(R.id.main).visibility = View.VISIBLE
+            findViewById<ConstraintLayout>(R.id.errorPanel).visibility = View.VISIBLE
+            findViewById<RelativeLayout>(R.id.loadingPanel).visibility = View.GONE
             resultLauncher.launch(Intent(this, SelectDeviceActivity::class.java))
         }
     }

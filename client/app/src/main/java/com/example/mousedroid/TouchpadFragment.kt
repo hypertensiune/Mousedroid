@@ -44,7 +44,7 @@ class TouchpadFragment(context: Context) : Fragment(), View.OnTouchListener {
         }
 
         if(gestureHandler.detector.onTouchEvent(p1)){
-            return true
+             return true
         }
 
         when(p1.action) {
