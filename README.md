@@ -19,3 +19,20 @@ Cross platform application that transforms your android phone in an input periph
   - Android 8 (Oreo) and newer
   
 If you have issues on Ubuntu switch to Xorg.
+
+## Features
+
+## How to use
+- Download
+
+#### Download and install the [prebuilt binaries](https://github.com/hypertensiune/Mousedroid/releases/tag/v1.0):
+- `win32.zip` for Windows
+- `linux.zip` for Linux
+- `Mousedroid.apk` for Android
+
+#### Built it yourself, follow the steps:
+- [Server](https://github.com/hypertensiune/Mousedroid/tree/main/server)
+- [Client](https://github.com/hypertensiune/Mousedroid/tree/main/client)
+
+
+## Notes
