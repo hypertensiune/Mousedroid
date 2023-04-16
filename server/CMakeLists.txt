@@ -5,7 +5,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # If find_package doesn't find wxWidgets, try settings the LIB_DIR or (and) the ROOT_DIR manually
 if(WIN32)
-    set(wxWidgets_LIB_DIR $ENV{WXWIN}/lib/gcc_dll)
+    # set(wxWidgets_LIB_DIR $ENV{WXWIN}/lib/gcc_dll)
     # set(wxWidgets_ROOT_DIR $ENV{WXWIN})
 endif()
 
@@ -25,6 +25,9 @@ if(WIN32)
 else()
 
     set(SRC_FILES ${SRC_FILES} src/input/LinuxInputManager.cpp)
+    
+    # Set this if you downloaded the asio library
+    # set(ASIO_PATH <path_to_your_asio>)
 
 endif()
 

@@ -52,8 +52,6 @@ namespace InputManager
         input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP;
 
         SendInput(1, &input, sizeof(INPUT));
-
-        //mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
     }
 
     void Windows::right_click()
@@ -67,11 +65,6 @@ namespace InputManager
 
     void Windows::move(int dx, int dy)
     {
-        /*GetCursorPos(&pCursor);
-        SetCursorPos(pCursor.x + dx, pCursor.y + dy);*/
-
-        //mouse_event(MOUSEEVENTF_MOVE, dx, dy, 0, 0);
-
         INPUT input = {};
         input.type = INPUT_MOUSE;
         input.mi.dwFlags = MOUSEEVENTF_MOVE;
@@ -89,8 +82,6 @@ namespace InputManager
         input.mi.mouseData = (int)(10 * (scroll_amount * (SCROLL_SENSITIVITY / 10.0)));
 
         SendInput(1, &input, sizeof(INPUT));
-
-        //mouse_event(MOUSEEVENTF_WHEEL, 0, 0, scroll_amount * 10, 0);
     }
 
     void Windows::down()
@@ -100,8 +91,6 @@ namespace InputManager
         input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
 
         SendInput(1, &input, sizeof(INPUT));
-
-        //mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
     }
 
     void Windows::up()
@@ -112,14 +101,10 @@ namespace InputManager
         input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
 
         SendInput(1, &input, sizeof(INPUT));
-
-        //mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
     }
 
     void Windows::send_key(char c)
     {
-        std::cout << c << "\n";
-
         INPUT inputs[4] = {};
         ZeroMemory(inputs, sizeof(inputs));
 

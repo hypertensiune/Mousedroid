@@ -96,7 +96,7 @@ namespace InputManager
             uinput_setup usetup;
 
             /**
-             * Transforms a char to a win32 keycode
+             * Transforms a char to a unix keycode
              * https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
              */
             int parse_char(char c, bool &shiftPressed);
