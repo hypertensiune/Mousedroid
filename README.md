@@ -1,6 +1,6 @@
 <h1  align="center">
   <sub>
-    <img  src="icon.png"  witdh=38  height=38></img>
+    <img  src="imgs/icon.png"  witdh=38  height=38></img>
   </sub>
   Mousedroid
 </h1>
