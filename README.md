@@ -38,5 +38,6 @@ Cross platform application that transforms your android phone in an input periph
 
 ## Notes
 
-- If you start the server after connecting your phone via USB you need to restart ADB
+- For Android versions greater than 31 ( Android 12L and newer ) the app requires bluetooth permission to display the bluetooth name set by the user. If the permission isn't allowed only the device model name is showed.
+- If you start the server after connecting your phone via USB you need to restart ADB.
 - On Wayland some features, like the taskbar icon may not be visible, switching to Xorg might solve the issue.
