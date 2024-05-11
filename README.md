@@ -35,6 +35,15 @@ Cross platform application that transforms your android phone in an input periph
 4. Start the server. ( If you start the server after connecting your phone via USB you need to restart ADB )
 5. For ***WIFI*** mode add the IP Address of your server and connect to it.
 
+## Gestures
+| Action         | Gesture     |
+| -------------- | ----------- |
+| Click          | Tap the screen once          |
+| Double click   | Double tap the screen        |
+| Right click    | Tap the screen once with two fingers
+| Scroll         | Place two fingers on the screen and slide horizontally or vertically
+| Drag & drop    | Long press and drag |
+
 
 ## Notes
 
