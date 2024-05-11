@@ -12,10 +12,9 @@ class GestureHandler(context: Context): GestureDetector.SimpleOnGestureListener(
     private lateinit var view: View
 
     var scrolled = false
+    var lastScrolled: Long = 0
     var isLongPressed = false
     var isMovingAfterLongPress = false
-
-    var isScaling = false
 
     private val TAG = "Mousedroid"
 
@@ -54,14 +53,12 @@ class GestureHandler(context: Context): GestureDetector.SimpleOnGestureListener(
         distanceX: Float,
         distanceY: Float
     ): Boolean {
-        if(e1.pointerCount == 1 && e2.pointerCount == 1)
+        if(e1.pointerCount == 1 && e2.pointerCount == 1 && System.currentTimeMillis() - lastScrolled > 500)
             TcpClient.write(MOVE, distanceX, distanceY)
         else {
-            if(!isScaling) {
-                Log.d(TAG, "SCROLL")
-                TcpClient.write(SCROLL, -distanceY)
-                scrolled = true
-            }
+            TcpClient.write(SCROLL, -distanceY)
+            scrolled = true
+            lastScrolled = System.currentTimeMillis()
         }
 
         return super.onScroll(e1, e2, distanceX, distanceY)

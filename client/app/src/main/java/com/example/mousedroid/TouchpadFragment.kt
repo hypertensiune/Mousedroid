@@ -34,7 +34,7 @@ class TouchpadFragment(context: Context) : Fragment(), View.OnTouchListener {
 
     override fun onTouch(p0: View?, p1: MotionEvent): Boolean {
         if(p1.actionMasked == MotionEvent.ACTION_POINTER_UP && p1.pointerCount == 2){
-            if(!gestureHandler.scrolled){
+            if(!gestureHandler.scrolled && System.currentTimeMillis() - gestureHandler.lastScrolled > 500){
                 TcpClient.write(GestureHandler.RIGHT_CLICK)
             }
             else{
@@ -44,7 +44,7 @@ class TouchpadFragment(context: Context) : Fragment(), View.OnTouchListener {
         }
 
         if(gestureHandler.detector.onTouchEvent(p1)){
-             return true
+            return true
         }
 
         when(p1.action) {
